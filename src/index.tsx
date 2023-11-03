@@ -50,11 +50,11 @@ function Header({
   handleLoginPage: JSX.MouseEventHandler<HTMLButtonElement>,
   handleLogout: JSX.MouseEventHandler<HTMLButtonElement> }) {
   return (
-    <header class="flex flex-col mx-2 gap-2 md:items-center md:flex-row h-screen md:h-auto">
+    <header class="flex flex-row flex-wrap mx-2 gap-2 md:items-center md:flex-nowrap md:h-auto">
       <input type="checkbox" id="menu" class="peer hidden" />
       <label for="menu" class="cursor-pointer rounded-lg bg-cyan-800 p-1"><Hamburger /></label>
-      <button onClick={handleHome} class="peer-checked:hidden order-first bg-cyan-800 rounded-lg p-1 grow text-3xl font-bold">FinEd Connect</button>
-      <div id="features" class="hidden peer-checked:flex peer-checked:flex-col md:peer-checked:flex-row peer-checked:basis-full peer-checked:justify-between bg-cyan-800 rounded-lg p-1 grow">
+      <button onClick={handleHome} class="md:peer-checked:hidden order-first bg-cyan-800 rounded-lg p-1 grow text-3xl font-bold">FinEd Connect</button>
+      <div id="features" class="hidden peer-checked:flex peer-checked:flex-col md:peer-checked:flex-row peer-checked:basis-full gap-2 bg-cyan-800 rounded-lg p-1 grow">
           <Button onClick={handleModules} content="Learn" />
           {loggedIn &&
           <Button onClick={handleRoadmap} content="Personalized Financial Roadmap" />
@@ -269,7 +269,7 @@ function App() {
 
   if (state == State.Home) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -288,7 +288,7 @@ function App() {
     )
   } else if (state == State.Modules) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -307,7 +307,7 @@ function App() {
     )
   } else if (state == State.Advisor) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -326,7 +326,7 @@ function App() {
     )
   } else if (state == State.Games) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -345,7 +345,7 @@ function App() {
     )
   } else if (state == State.Forum) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -364,7 +364,7 @@ function App() {
     )
   } else if (state == State.Tax) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -383,7 +383,7 @@ function App() {
     )
   } else if (state == State.Register) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
@@ -402,7 +402,7 @@ function App() {
     )
   } else if (state == State.Login) {
     return (
-      <div class="h-screen bg-slate-900 flex flex-col">
+      <div class="md:h-screen flex flex-col">
         <Header
           loggedIn={loggedIn}
           handleHome={handleHome}
