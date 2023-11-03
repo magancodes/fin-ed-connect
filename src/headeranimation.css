@@ -1,0 +1,12 @@
+@keyframes slidein {
+	0% {
+		margin-left: 100%;
+	}
+	100% {
+		margin-left: 0%;
+	}
+}
+
+#features {
+	animation: slidein 0.2s ease-out;
+}
