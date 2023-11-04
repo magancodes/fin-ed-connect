@@ -1,3 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * @source: https://github.com/pranjalkole/fin-ed-connect
+ *
+ * @license AGPL-3.0-only
+ *
+ * Copyright (C) 2023  Pranjal Kole <pranjal.kole7@gmail.com>
+ */
+
+@keyframes slidein {
+	0% {
+		margin-left: 100%;
+	}
+	100% {
+		margin-left: 0%;
+	}
+}
+
+.my-slidein {
+	animation: slidein 0.2s ease-out;
+}
+
+.my-gradient {
+	background: linear-gradient(54deg, #131838 0%, #0B4369 100%);
+}
+
+.my-gradient-r {
+	background: linear-gradient(90deg, #11406E 0%, #11517E 100%)
+}
+
+.my-button {
+	background: rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+.my-button:hover {
+	background: rgba(255, 255, 255, 0.2);
+}

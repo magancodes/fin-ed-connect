@@ -5,8 +5,18 @@ export default {
     "./index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "myheading": "#1FD5E2",
+        "mytext": "#57D8E5",
+        "mybg": "#0B1D38",
+        "myaccent": "#16878F",
+      },
+      fontFamily: {
+        mysans :['"Lexend"','sans serif']
+      },
+    },
   },
   plugins: [],
 }
-
+/* vim: set et sw=2: */
