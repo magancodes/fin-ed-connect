@@ -347,6 +347,7 @@ function App() {
   };
   const handleLogout = () => {
     setUsername("");
+    setState(State.Home);
   }
 
   const handleLogin = (event: JSX.TargetedEvent<HTMLFormElement>) => {
