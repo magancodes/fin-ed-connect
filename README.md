@@ -5,6 +5,13 @@
 ### Dependencies
 - npm
 
-- Install npm dependencies with `npm install`
-- Run a development server with `npm run dev`
-- For a production build, build with `npm run build` and it will be generated in dist/
+Run the following to start a development server on port 5173:
+```
+npm install
+npm run dev
+```
+
+For a production build, run `npm run build` to generate it in `dist/`.
+
+## License
+AGPLv3, see COPYING.
