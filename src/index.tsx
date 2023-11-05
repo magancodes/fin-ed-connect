@@ -11,6 +11,8 @@ import { render, JSX } from "preact"
 import { useState } from "preact/hooks"
 import "./index.css"
 import landing from "/landing.png"
+import graph from "/graph.svg"
+import money_master from "/money_master.png"
 
 import "tailwindcss/tailwind.css";
 
@@ -153,18 +155,24 @@ function Games() {
   return (
     <div class="grow mx-2 mt-4 text-cyan-400 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans shadow-xl">Games</h1>
-      <div class="grow grid gap-4 mx-4">
+      <div class="grow grid grid-cols-2 grid-rows-2 gap-4 mx-4">
         <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-chall">
           <h1 class="font-serif text-5xl text-white">Financial challenges</h1>
           <p class="font-serif text-2xl text-white">Monthly challenges to encourage practical application of knowledge.</p>
         </div>
-        <div class="bg-gray-900 rounded-xl row-span-2 px-4 py-3 shadow-xl bg-gradient-to-tr from-[#272727] to-[#1D1D1D] col-span-1">
+        <div class="bg-gray-900 rounded-xl px-4 py-3 shadow-xl bg-gradient-to-tr from-[#272727] to-[#1D1D1D] col-span-1">
           <h1 class="text-white text-5xl font-bold">Investment simulator</h1>
-          <p class="text-xl text-white">Virtual stock market simulation for hands-on experience</p>
+          <div class="flex">
+            <p class="basis-0 grow text-xl text-white">Virtual stock market simulation for hands-on experience</p>
+            <div class="basis-0 grow"><img src={graph} /></div>
+          </div>
         </div>
-        <div class="bg-emerald-600 rounded-xl row-span-2 text-right px-4 py-3 shadow-xl bg-gradient-to-tr from-[#81C32C] to-[#43771A] col-span-1">
+        <div class="bg-emerald-600 rounded-xl text-right px-4 py-3 shadow-xl bg-gradient-to-tr from-[#81C32C] to-[#43771A] col-span-1">
           <h1 class="text-5xl font-bold text-white">Money Master</h1>
-          <p class="text-xl text-white">Gamified experiences to simulate financial decision making</p>
+          <div class="flex">
+            <div class="basis-0 grow"><img src={money_master} /></div>
+            <p class="basis-0 grow text-xl text-white">Gamified experiences to simulate financial decision making</p>
+          </div>
         </div>
       </div>
     </div>

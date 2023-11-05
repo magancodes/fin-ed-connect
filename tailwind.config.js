@@ -16,7 +16,7 @@ export default {
         mysans: ['Lexend', 'sans serif']
       },
       backgroundImage: {
-        "chall": "url('/chall.svg')",
+        "chall": "url('/chall.svg')"
       }
     },
   },
