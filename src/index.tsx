@@ -8,7 +8,7 @@
  */
 
 import { render, JSX } from "preact"
-import { useState } from "preact/hooks"
+import { useState, StateUpdater } from "preact/hooks"
 import "./index.css"
 import landing from "/landing.png"
 import graph from "/graph.svg"
@@ -16,6 +16,18 @@ import money_master from "/money_master.png"
 import send from "/send.svg"
 
 import "tailwindcss/tailwind.css";
+
+enum State {
+  Home,
+  Modules,
+  Roadmap,
+  Advisor,
+  Games,
+  Forum,
+  Tax,
+  Register,
+  Login
+}
 
 function Hamburger() {
   return (
@@ -27,54 +39,40 @@ function Hamburger() {
 
 function Button({ content, onClick }: { content: string, onClick: JSX.MouseEventHandler<HTMLButtonElement> }) {
   return (
-    <button onClick={onClick} class="my-button text-mytext font-bold px-2 py-1 rounded-lg">{content}</button>
+    <button onClick={onClick} class="my-button text-mytext font-bold px-2 py-1 rounded-lg">
+      {content}
+    </button>
   )
 }
 
-function Header({
-  loggedIn,
-  handleHome,
-  handleModules,
-  handleRoadmap,
-  handleAdvisor,
-  handleGames,
-  handleForum,
-  handleTax,
-  handleRegisterPage,
-  handleLoginPage,
-  handleLogout }:
-  { loggedIn: boolean,
-  handleHome: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleModules: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleRoadmap: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleAdvisor: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleGames: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleForum: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleTax: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleRegisterPage: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleLoginPage: JSX.MouseEventHandler<HTMLButtonElement>,
-  handleLogout: JSX.MouseEventHandler<HTMLButtonElement> }) {
+function Header({ loggedIn, setState, setUsername }: { loggedIn: boolean,
+    setState: StateUpdater<State>, setUsername: StateUpdater<string> }) {
+  const handleLogout = () => {
+    setUsername("");
+    setState(State.Home);
+  }
+
   return (
     <header class="flex flex-row flex-wrap mx-2 mt-2 gap-2 md:items-center md:flex-nowrap md:h-auto text-myheading shadow-xl">
       <input type="checkbox" id="menu" class="peer hidden" />
       <label for="menu" class="my-gradient-r cursor-pointer rounded-xl bg-cyan-900 p-1 shadow-xl"><Hamburger /></label>
-      <button onClick={handleHome} class="my-gradient md:peer-checked:hidden order-first bg-cyan-900 rounded-xl p-1 grow text-3xl font-bold text-left pl-4">FinEd Connect.</button>
+      <button onClick={() => setState(State.Home)} class="my-gradient md:peer-checked:hidden order-first bg-cyan-900 rounded-xl p-1 grow text-3xl font-bold text-left pl-4">FinEd Connect.</button>
       <div class="my-gradient-r my-slidein hidden peer-checked:flex flex-col md:peer-checked:flex-row peer-checked:basis-full gap-4 bg-cyan-800 rounded-xl py-2 px-2 grow">
-          <Button onClick={handleModules} content="Learn" />
+          <Button onClick={() => setState(State.Modules)} content="Learn" />
           {loggedIn &&
-          <Button onClick={handleRoadmap} content="Personalized Financial Roadmap" />
+          <Button onClick={() => setState(State.Roadmap)} content="Personalized Financial Roadmap" />
           }
-          <Button onClick={handleAdvisor} content="Virtual Advisor" />
-          <Button onClick={handleGames} content="Games" />
-          <Button onClick={handleForum} content="Forum" />
-          <Button onClick={handleTax} content="Tax Section" />
+          <Button onClick={() => setState(State.Advisor)} content="Virtual Advisor" />
+          <Button onClick={() => setState(State.Games)} content="Games" />
+          <Button onClick={() => setState(State.Forum)} content="Forum" />
+          <Button onClick={() => setState(State.Tax)} content="Tax Section" />
           {loggedIn
           ?
           <Button onClick={handleLogout} content="Logout" />
           :
           <>
-            <Button onClick={handleRegisterPage} content="Register" />
-            <Button onClick={handleLoginPage} content="Login" />
+            <Button onClick={() => setState(State.Register)} content="Register" />
+            <Button onClick={() => setState(State.Login)} content="Login" />
           </>
           }
       </div>
@@ -82,7 +80,7 @@ function Header({
   )
 }
 
-function Home({ handleRegisterPage }: { handleRegisterPage: JSX.MouseEventHandler<HTMLButtonElement> }) {
+function Home({ setState }: { setState: StateUpdater<State> }) {
   return (
     <div class="grow flex gap-4 m-2">
       <div class="basis-0 grow flex flex-col gap-8 justify-around rounded-2xl my-gradient p-2 shadow-xl text-mytext">
@@ -96,7 +94,7 @@ function Home({ handleRegisterPage }: { handleRegisterPage: JSX.MouseEventHandle
           </div>
           <p class="text-center md:text-left text-xl font-mysans">Welcome to <span class="text-myheading">FinEd Connect</span>, the ultimate online resource for improving your financial literacy. Whether you are a student, a professional, or a retiree, you will find valuable information and guidance on how to manage your money, plan for your future, and achieve your financial goals. Learn from the best finance websites, courses, and experts in the field, and discover how to make smart and informed decisions about your finances. Join us today and start your journey to financial freedom and success.</p>
         </div>
-        <button onClick={handleRegisterPage} class="text-3xl font-black bg-white self-center text-myaccent py-4 px-8 rounded-full">JOIN NOW</button>
+        <button onClick={() => setState(State.Register)} class="text-3xl font-black bg-white self-center text-myaccent py-4 px-8 rounded-full">JOIN NOW</button>
       </div>
       <div class="basis-0 grow hidden md:block">
         <img src={landing} class="" alt="" width="3200" height="2400" />
@@ -140,13 +138,14 @@ function Modules() {
 }
 
 function Advisor() {
-  const [messages, setMessages] = useState([] as string[]);
+  const [messages, setMessages] = useState<string[]>([]);
   const handleSubmit = (event: JSX.TargetedEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = event.currentTarget.message;
     setMessages([...messages, message.value]);
     message.value = "";
   };
+
   return (
     <div class="mx-2 mt-4 text-black flex flex-col gap-2 h-full justify-between grow">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans">Virtual Finance Advisor</h1>
@@ -258,17 +257,18 @@ function Tax() {
   )
 }
 
-function Register({ handleLoginPage }: { handleLoginPage: JSX.MouseEventHandler<HTMLButtonElement> }) {
-  enum State {
+function Register({ setState }: { setState: StateUpdater<State> }) {
+  enum RegisterState {
     Form,
     Success
   }
-  const [state, setState] = useState(State.Form);
+  const [registerState, setRegisterState] = useState(RegisterState.Form);
   const handleRegister = (event: JSX.TargetedEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setState(State.Success);
+    setRegisterState(RegisterState.Success);
   };
-  if (state == State.Form) {
+
+  if (registerState == RegisterState.Form) {
     return (
       <div class="grow flex items-stretch justify-center">
         <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4 py-4">
@@ -285,12 +285,12 @@ function Register({ handleLoginPage }: { handleLoginPage: JSX.MouseEventHandler<
       </div>
     )
   }
-  /* state is State.Success */
+  /* registerState is RegisterState.Success */
   return (
     <div class="grow flex items-stretch justify-center">
       <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col gap-2 items-center justify-center my-gradient rounded-xl m-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
-        <button onClick={handleLoginPage} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
+        <button onClick={() => setState(State.Login)} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
       </div>
     </div>
   )
@@ -321,234 +321,38 @@ function Roadmap({ username }: { username: string }) {
   )
 }
 
-function App() {
-  enum State {
-    Home,
-    Modules,
-    Roadmap,
-    Advisor,
-    Games,
-    Forum,
-    Tax,
-    Register,
-    Login
-  }
-  const [state, setState] = useState(State.Home);
-  const [username, setUsername] = useState("");
-  const loggedIn = username !== "";
-
-  const handleHome = () => {
-    setState(State.Home);
-  };
-  const handleModules = () => {
-    setState(State.Modules);
-  };
-  const handleRoadmap = () => {
-    setState(State.Roadmap);
-  };
-  const handleAdvisor = () => {
-    setState(State.Advisor);
-  };
-  const handleGames = () => {
-    setState(State.Games);
-  };
-  const handleForum = () => {
-    setState(State.Forum);
-  };
-  const handleTax = () => {
-    setState(State.Tax);
-  };
-  const handleRegisterPage = () => {
-    setState(State.Register);
-  };
-  const handleLoginPage = () => {
-    setState(State.Login);
-  };
-  const handleLogout = () => {
-    setUsername("");
-    setState(State.Home);
-  }
-
+function Body({ state, setState, username, setUsername }: { state: State,
+    setState: StateUpdater<State>, username: string,
+    setUsername: StateUpdater<string> }) {
   const handleLogin = (event: JSX.TargetedEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUsername(event.currentTarget.username.value);
     setState(State.Roadmap);
   };
 
-  if (state == State.Home) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Home
-          handleRegisterPage={handleRegisterPage}
-        />
-      </div>
-    )
-  } else if (state == State.Modules) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Modules />
-      </div>
-    )
-  } else if (state == State.Advisor) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Advisor />
-      </div>
-    )
-  } else if (state == State.Games) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Games />
-      </div>
-    )
-  } else if (state == State.Forum) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Forum />
-      </div>
-    )
-  } else if (state == State.Tax) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Tax />
-      </div>
-    )
-  } else if (state == State.Register) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Register
-          handleLoginPage={handleLoginPage}
-        />
-      </div>
-    )
-  } else if (state == State.Login) {
-    return (
-      <div class="flex flex-col min-h-screen">
-        <Header
-          loggedIn={loggedIn}
-          handleHome={handleHome}
-          handleModules={handleModules}
-          handleRoadmap={handleRoadmap}
-          handleAdvisor={handleAdvisor}
-          handleGames={handleGames}
-          handleForum={handleForum}
-          handleTax={handleTax}
-          handleRegisterPage={handleRegisterPage}
-          handleLoginPage={handleLoginPage}
-          handleLogout={handleLogout}
-        />
-        <Login handleLogin={handleLogin} />
-      </div>
-    )
-  }
-  /* This should never happen */
+  if (state == State.Home) return <Home setState={setState} />
+  else if (state == State.Modules) return <Modules />
+  else if (state == State.Advisor) return <Advisor />
+  else if (state == State.Games) return <Games />
+  else if (state == State.Forum) return <Forum />
+  else if (state == State.Tax) return <Tax />
+  else if (state == State.Register) return <Register setState={setState} />
+  else if (state == State.Login) return <Login handleLogin={handleLogin} />
+  /* state is State.Roadmap */
+  else return <Roadmap username={username} />
+}
+
+function App() {
+  const [state, setState] = useState(State.Home);
+  const [username, setUsername] = useState("");
+  const loggedIn = username !== "";
+
   return (
     <div class="flex flex-col min-h-screen">
-      <Header
-        loggedIn={loggedIn}
-        handleHome={handleHome}
-        handleModules={handleModules}
-        handleRoadmap={handleRoadmap}
-        handleAdvisor={handleAdvisor}
-        handleGames={handleGames}
-        handleForum={handleForum}
-        handleTax={handleTax}
-        handleRegisterPage={handleRegisterPage}
-        handleLoginPage={handleLoginPage}
-        handleLogout={handleLogout}
-      />
-      <Roadmap username={username} />
+      <Header loggedIn={loggedIn} setState={setState}
+        setUsername={setUsername} />
+      <Body state={state} setState={setState} username={username}
+        setUsername={setUsername} />
     </div>
   )
 }
