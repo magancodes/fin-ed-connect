@@ -15,6 +15,9 @@ export default {
       fontFamily: {
         mysans: ['Lexend', 'sans serif']
       },
+      backgroundImage: {
+        "chall": "url('/public/chall.svg')",
+      }
     },
   },
   plugins: [],

@@ -153,12 +153,8 @@ function Games() {
   return (
     <div class="grow mx-2 mt-4 text-cyan-400 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans shadow-xl">Games</h1>
-<<<<<<< HEAD
       <div class="grow grid gap-4 mx-4">
-=======
-      <div class="grow grid gap-4 mx-4 w-screen">
->>>>>>> 2d4db15 (More design changes)
-        <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-gradient-to-tr from-[#F96900] to-[#C71800]">
+        <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-gradient-to-tr from-[#F96900] to-[#C71800] bg-chall">
           <h1 class="font-serif text-5xl text-white">Financial challenges</h1>
           <p class="font-serif text-2xl text-white">Monthly challenges to encourage practical application of knowledge.</p>
         </div>
@@ -183,21 +179,21 @@ function Forum() {
         <button class="my-button font-bold text-myheading px-2 py-1 rounded-xl">Create thread</button>
       </div>
       <div class="flex flex-col gap-2">
-        <div class="flex justify-between bg-cyan-900 rounded-xl p-2">
+        <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">Doubts regarding taxes</h1>
             <p class="font-mono">2 posts</p>
           </div>
           <p class="font-mono">Created: 16 Oct, 2023</p>
         </div>
-        <div class="flex justify-between bg-cyan-900 rounded-xl p-2">
+        <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">Help needed</h1>
             <p class="font-mono">5 posts</p>
           </div>
           <p class="font-mono">Created: 13 Oct, 2023</p>
         </div>
-        <div class="flex justify-between bg-cyan-900 rounded-xl p-2">
+        <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">How do I make money?</h1>
             <p class="font-mono">1 post</p>
@@ -258,14 +254,14 @@ function Register({ handleLoginPage }: { handleLoginPage: JSX.MouseEventHandler<
       <div class="grow flex items-stretch justify-center">
         <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4 py-4">
           <h1 class="text-5xl text-myheading font-black">SIGN UP</h1>
-          <form class="flex flex-col items-center p-2 justify-around gap-4 w-full" onSubmit={handleRegister}>
+          <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleRegister}>
             <input required name="email" type="email" placeholder="Email" class="w-full rounded-xl p-2 text-xl" />
             <input required name="username" placeholder="Username" class="w-full rounded-xl p-2 text-xl" />
             <input required name="password" type="password" placeholder="Password" class="w-full rounded-xl p-2 text-xl" />
             <input required name="cnfpassword" type="password" placeholder="Re-enter Password" class="w-full rounded-xl p-2 text-xl" />
-            <button class="text-3xl text-green-700 bg-white px-8 py-2 rounded-full font-black">SIGN UP</button>
+            <button class="text-3xl text-myaccent bg-white px-8 py-2 rounded-full font-black">SIGN UP</button>
           </form>
-          <p class="text-mytext">Already have an account? Log in</p>
+          <p class="text-mytext">Already have an account? <span class="underline">Log in</span></p>
         </div>
       </div>
     )
@@ -275,7 +271,7 @@ function Register({ handleLoginPage }: { handleLoginPage: JSX.MouseEventHandler<
     <div class="grow flex items-stretch justify-center">
       <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col gap-2 items-center justify-center my-gradient rounded-xl m-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
-        <button onClick={handleLoginPage} class="text-xl text-green-700 bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
+        <button onClick={handleLoginPage} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
       </div>
     </div>
   )
@@ -286,11 +282,11 @@ function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormE
     <div class="grow flex items-stretch justify-center">
       <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4">
         <h1 class="text-5xl text-myheading font-black">LOG IN</h1>
-        <form class="flex flex-col items-center p-2 justify-around gap-4 w-full" onSubmit={handleLogin}>
+        <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleLogin}>
           <input required name="username" placeholder="Username" class="w-full rounded-xl p-2 text-xl" />
           <input required name="password" type="password" placeholder="Password" class="w-full rounded-xl p-2 text-xl" />
           <p class="text-mytext">Forgot password?</p>
-          <button class="text-3xl text-green-700 bg-white px-8 py-2 rounded-full font-black">LOG IN</button>
+          <button class="text-3xl text-myaccent bg-white px-8 py-2 rounded-full font-black">LOG IN</button>
         </form>
       </div>
     </div>

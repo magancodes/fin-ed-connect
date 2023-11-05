@@ -30,12 +30,13 @@
 
 .my-gradient-alt {
 	background: linear-gradient(240deg, #151B41 0%, #124D77 100%);
+	transition: background 0.3s ease-in;
 }
 
 .my-button {
 	background: rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-	transition: background 0.3s linear;
+	transition: background 0.3s ease-in;
 }
 
 .my-button:hover {
@@ -44,4 +45,8 @@
 
 .my-button:hover {
 	background: rgba(255, 255, 255, 0.2);
+}
+
+.my-gradient-alt:hover {
+	background: linear-gradient(60deg, #151B41 0%, #124D77 100%);
 }
