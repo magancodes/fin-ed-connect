@@ -106,7 +106,7 @@ function Modules() {
   return (
     <div class="mx-2 my-4 text-cyan-400 flex flex-col gap-4">
       <div class="flex justify-between my-gradient rounded-xl p-2">
-        <h1 class="text-4xl font-bold text-myheading font-mysans">Videos</h1>
+        <h1 class="text-4xl font-bold text-myheading font-mysans shadow-xl">Videos</h1>
         <button class="my-button text-mytext font-bold px-2 py-1 rounded-xl">View all</button>
       </div>
       <div class="flex flex-col md:flex-row gap-4 mx-6">
@@ -121,14 +121,14 @@ function Modules() {
         </div>
       </div>
       <div class="flex justify-between my-gradient rounded-xl p-2">
-        <h1 class="text-4xl font-bold text-myheading font-mysans">Learning Modules</h1>
+        <h1 class="text-4xl font-bold text-myheading font-mysans shadow-xl">Learning Modules</h1>
         <button class="my-button text-mytext font-bold px-2 py-1 rounded-xl">View all</button>
       </div>
-      <div class="flex flex-col my-gradient rounded-xl mx-4 px-2">
+      <div class="flex flex-col my-gradient-alt rounded-xl shadow-xl mx-4 px-2">
         <h1 class="text-2xl font-bold">Introduction to investing</h1>
         <p class="font-mono">Read time: 15 min</p>
       </div>
-      <div class="flex flex-col my-gradient rounded-xl mx-4 px-2">
+      <div class="flex flex-col my-gradient-alt rounded-xl shadow-xl mx-4 px-2">
         <h1 class="text-2xl font-bold">Financial planning 101</h1>
         <p class="font-mono">Read time: 24 min</p>
       </div>
@@ -153,16 +153,20 @@ function Games() {
   return (
     <div class="grow mx-2 mt-4 text-cyan-400 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans shadow-xl">Games</h1>
+<<<<<<< HEAD
       <div class="grow grid gap-4 mx-4">
+=======
+      <div class="grow grid gap-4 mx-4 w-screen">
+>>>>>>> 2d4db15 (More design changes)
         <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-gradient-to-tr from-[#F96900] to-[#C71800]">
           <h1 class="font-serif text-5xl text-white">Financial challenges</h1>
           <p class="font-serif text-2xl text-white">Monthly challenges to encourage practical application of knowledge.</p>
         </div>
-        <div class="bg-gray-900 rounded-xl row-span-2 col-span-1">
+        <div class="bg-gray-900 rounded-xl row-span-2 px-4 py-3 shadow-xl bg-gradient-to-tr from-[#272727] to-[#1D1D1D] col-span-1">
           <h1 class="text-white text-5xl font-bold">Investment simulator</h1>
           <p class="text-xl text-white">Virtual stock market simulation for hands-on experience</p>
         </div>
-        <div class="bg-emerald-600 rounded-xl row-span-2 col-span-1">
+        <div class="bg-emerald-600 rounded-xl row-span-2 text-right px-4 py-3 shadow-xl bg-gradient-to-tr from-[#81C32C] to-[#43771A] col-span-1">
           <h1 class="text-5xl font-bold text-white">Money Master</h1>
           <p class="text-xl text-white">Gamified experiences to simulate financial decision making</p>
         </div>
