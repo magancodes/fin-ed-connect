@@ -13,6 +13,7 @@ import "./index.css"
 import landing from "/landing.png"
 import graph from "/graph.svg"
 import money_master from "/money_master.png"
+import send from "/send.svg"
 
 import "tailwindcss/tailwind.css";
 
@@ -97,8 +98,8 @@ function Home({ handleRegisterPage }: { handleRegisterPage: JSX.MouseEventHandle
         </div>
         <button onClick={handleRegisterPage} class="text-3xl font-black bg-white self-center text-myaccent py-4 px-8 rounded-full">JOIN NOW</button>
       </div>
-      <div class="hidden md:block basis-0 grow">
-        <img src={landing} class="object-scale-down" />
+      <div class="basis-0 grow hidden md:block">
+        <img src={landing} class="" alt="" width="3200" height="2400" />
       </div>
     </div>
   )
@@ -139,13 +140,23 @@ function Modules() {
 }
 
 function Advisor() {
+  const [messages, setMessages] = useState([] as string[]);
+  const handleSubmit = (event: JSX.TargetedEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const message = event.currentTarget.message;
+    setMessages([...messages, message.value]);
+    message.value = "";
+  };
   return (
-    <div class="mx-2 mt-4 text-cyan-400 flex flex-col gap-2 h-full">
+    <div class="mx-2 mt-4 text-black flex flex-col gap-2 h-full justify-between grow">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans">Virtual Finance Advisor</h1>
-      <p class="w-full md:w-1/2 lg:w-1/3 bg-white text-black p-2 rounded-xl">Hello there, I am your personal virtual finance advisor. How may I help you?</p>
-      <div class="flex gap-2">
-        <input class="grow rounded-xl bg-white p-2" placeholder="Enter your message" />
-        <button class="rounded-xl bg-cyan-900 p-2">Send</button>
+      <div class="flex flex-col gap-2 py-2">
+        <p class="w-full md:w-1/2 lg:w-1/3 bg-white p-2 rounded-xl">Hello there, I am your personal virtual finance advisor. How may I help you?</p>
+        {messages.map((message) => <p class="w-full md:w-1/2 lg:w-1/3 bg-white p-2 rounded-xl">{message}</p>)}
+        <form onSubmit={handleSubmit} class="flex gap-2">
+          <input class="grow rounded-xl bg-white p-2" name="message" placeholder="Enter your message" />
+          <button class="rounded-xl my-gradient p-2 w-12"><img src={send} /></button>
+        </form>
       </div>
     </div>
   )
@@ -190,21 +201,21 @@ function Forum() {
         <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">Doubts regarding taxes</h1>
-            <p class="font-mono">2 posts</p>
+            <p class="font-mono text-sm">2 posts</p>
           </div>
           <p class="font-mono">Created: 16 Oct, 2023</p>
         </div>
         <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">Help needed</h1>
-            <p class="font-mono">5 posts</p>
+            <p class="font-mono text-sm">5 posts</p>
           </div>
           <p class="font-mono">Created: 13 Oct, 2023</p>
         </div>
         <div class="flex justify-between my-gradient-alt rounded-xl p-2">
           <div class="flex flex-col">
             <h1 class="text-3xl font-bold">How do I make money?</h1>
-            <p class="font-mono">1 post</p>
+            <p class="font-mono text-sm">1 post</p>
           </div>
           <p class="font-mono">Created: 7 Oct, 2023</p>
         </div>
@@ -215,31 +226,31 @@ function Forum() {
 
 function Tax() {
   return (
-    <div class="mx-2 mt-4 text-cyan-400 flex flex-col gap-4 h-full">
+    <div class="mx-2 mt-4 flex flex-col gap-4 h-full text-myheading">
       <div class="flex justify-between my-gradient rounded-xl p-2">
-        <h1 class="text-4xl font-bold text-myheading font-mysans">Tax Section</h1>
+        <h1 class="text-4xl font-bold font-mysans">Tax Section</h1>
       </div>
       <div class="flex flex-col gap-2">
-        <div class="flex flex-col gap-4 bg-cyan-900 rounded-xl p-2">
-          <h1 class="text-3xl font-bold text-accent">Taxes and their types</h1>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-            <div class="flex items-center justify-center">
-              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4XZIv4__sQA?si=M2STbyjNAOg9tnpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen class="rounded-xl"></iframe>
+        <div class="flex flex-col gap-4 my-gradient rounded-xl p-2">
+          <h1 class="text-3xl font-bold">Taxes and their types</h1>
+          <div class="flex flex-wrap gap-2">
+            <div class="basis-0 grow flex items-center justify-center">
+              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4XZIv4__sQA?si=M2STbyjNAOg9tnpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
-            <div class="flex items-center justify-center">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LrTejUbR_Zs?si=K9JqVctnAdwW8RP9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen class="rounded-xl"></iframe>
+            <div class="basis-0 grow flex items-center justify-center">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LrTejUbR_Zs?si=K9JqVctnAdwW8RP9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
-            <div class="flex items-center justify-center">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/p7HKvqRI_Bo?si=PlmilD6HPvwCRihN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen class="rounded-xl"></iframe>
+            <div class="basis-0 grow flex items-center justify-center">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/p7HKvqRI_Bo?si=PlmilD6HPvwCRihN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
           </div>
         </div>
-        <div class="flex flex-col gap-4 items-start bg-cyan-900 rounded-xl p-2">
-          <h1 class="text-3xl font-bold text-accent">How to calculate your taxes</h1>
+        <div class="flex flex-col gap-4 items-start my-gradient rounded-xl p-2">
+          <h1 class="text-3xl font-bold">How to calculate your taxes</h1>
           <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-full" href="https://incometaxindia.gov.in/pages/tools/tax-calculator.aspx">Tax Calculator</a>
         </div>
-        <div class="flex flex-col gap-4 items-start bg-cyan-900 rounded-xl p-2">
-          <h1 class="text-3xl font-bold text-accent">Tax rebates</h1>
+        <div class="flex flex-col gap-4 items-start my-gradient rounded-xl p-2">
+          <h1 class="text-3xl font-bold">Tax rebates</h1>
           <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-full" href="https://scripbox.com/tax/tax-saving-options/">Tax Saving Options</a>
         </div>
       </div>
@@ -288,7 +299,7 @@ function Register({ handleLoginPage }: { handleLoginPage: JSX.MouseEventHandler<
 function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormElement> }) {
   return (
     <div class="grow flex items-stretch justify-center">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4">
+      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4 m-4">
         <h1 class="text-5xl text-myheading font-black">LOG IN</h1>
         <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleLogin}>
           <input required name="username" placeholder="Username" class="w-full rounded-xl p-2 text-xl" />
