@@ -4,6 +4,7 @@
  * @license AGPL-3.0-only
  *
  * Copyright (C) 2023  Pranjal Kole <pranjal.kole7@gmail.com>
+ * Copyright (C) 2023  Rishit Dutta <rishitdutta03@gmail.com>
  */
 
 import { render, JSX } from "preact"
@@ -82,9 +83,9 @@ function Home({ handleRegisterPage }: { handleRegisterPage: JSX.MouseEventHandle
   return (
     <div class="grow flex gap-4 m-2">
       <div class="basis-0 grow flex flex-col gap-8 justify-around rounded-2xl my-gradient p-2 shadow-xl text-mytext">
-        <div class="flex flex-col gap-4 md:gap-20 mx-6 my-6">
+        <div class="flex flex-col gap-8 mx-6 my-6">
           <div class="flex flex-col items-center md:items-start md:py-0">
-            <h1 class="md:text-8xl font-mysans font-bold text-myheading md:pr-14 text-6xl text-center md:text-left">FinEd Connect.</h1>
+            <h1 class="md:text-8xl font-mysans font-bold text-myheading md:pr-14 text-6xl">FinEd Connect.</h1>
             <p class="font-medium font-mysans text-myheading text-xl">Make <span class="underline">smarter</span> decisions</p>
           </div>
           <div class="md:hidden">
@@ -175,7 +176,7 @@ function Forum() {
     <div class="mx-2 mt-4 text-cyan-400 flex flex-col gap-4 h-full">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold text-myheading font-mysans">Forums</h1>
-        <button class="my-button text-mytext font-bold px-2 py-1 rounded-xl">Create thread</button>
+        <button class="my-button font-bold text-myheading px-2 py-1 rounded-xl">Create thread</button>
       </div>
       <div class="flex flex-col gap-2">
         <div class="flex justify-between bg-cyan-900 rounded-xl p-2">
@@ -292,6 +293,15 @@ function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormE
   )
 }
 
+function Roadmap({ username }: { username: string }) {
+  return (
+    <div>
+      <h1 class="text-5xl text-white">Hello {username}</h1>
+      <h1 class="text-5xl text-white">TODO!</h1>
+    </div>
+  )
+}
+
 function App() {
   enum State {
     Home,
@@ -315,6 +325,7 @@ function App() {
     setState(State.Modules);
   };
   const handleRoadmap = () => {
+    setState(State.Roadmap);
   };
   const handleAdvisor = () => {
     setState(State.Advisor);
@@ -341,6 +352,7 @@ function App() {
   const handleLogin = (event: JSX.TargetedEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUsername(event.currentTarget.username.value);
+    setState(State.Roadmap);
   };
 
   if (state == State.Home) {
@@ -501,7 +513,24 @@ function App() {
     )
   }
   /* This should never happen */
-  return <>Bug in application</>
+  return (
+    <div class="flex flex-col min-h-screen">
+      <Header
+        loggedIn={loggedIn}
+        handleHome={handleHome}
+        handleModules={handleModules}
+        handleRoadmap={handleRoadmap}
+        handleAdvisor={handleAdvisor}
+        handleGames={handleGames}
+        handleForum={handleForum}
+        handleTax={handleTax}
+        handleRegisterPage={handleRegisterPage}
+        handleLoginPage={handleLoginPage}
+        handleLogout={handleLogout}
+      />
+      <Roadmap username={username} />
+    </div>
+  )
 }
 
 render(<App />, document.getElementById("app")!)

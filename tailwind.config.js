@@ -13,7 +13,7 @@ export default {
         "myaccent": "#16878F",
       },
       fontFamily: {
-        mysans :['"Lexend"','sans serif']
+        mysans: ['Lexend', 'sans serif']
       },
     },
   },
