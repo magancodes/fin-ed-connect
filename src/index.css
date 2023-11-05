@@ -29,7 +29,12 @@
 
 .my-button {
 	background: rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+	transition: background 0.3s linear;
+}
+
+.my-button:hover {
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .my-button:hover {

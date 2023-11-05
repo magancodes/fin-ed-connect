@@ -55,7 +55,7 @@ function Header({
       <input type="checkbox" id="menu" class="peer hidden" />
       <label for="menu" class="my-gradient-r cursor-pointer rounded-xl bg-cyan-900 p-1 shadow-xl"><Hamburger /></label>
       <button onClick={handleHome} class="my-gradient md:peer-checked:hidden order-first bg-cyan-900 rounded-xl p-1 grow text-3xl font-bold text-left pl-4">FinEd Connect.</button>
-      <div class="my-gradient-r my-slidein hidden peer-checked:flex flex-col md:peer-checked:flex-row peer-checked:basis-full gap-4 bg-cyan-800 rounded-xl py-1 px-8 grow">
+      <div class="my-gradient-r my-slidein hidden peer-checked:flex flex-col md:peer-checked:flex-row peer-checked:basis-full gap-4 bg-cyan-800 rounded-xl py-2 px-2 grow">
           <Button onClick={handleModules} content="Learn" />
           {loggedIn &&
           <Button onClick={handleRoadmap} content="Personalized Financial Roadmap" />
@@ -90,7 +90,7 @@ function Home({ handleRegisterPage }: { handleRegisterPage: JSX.MouseEventHandle
           <div class="md:hidden">
             <img src={landing} class="object-scale-down" />
           </div>
-          <p class="text-center md:text-left text-xl">Welcome to <span class="text-myheading">FinEd Connect</span>, the ultimate online resource for improving your financial literacy. Whether you are a student, a professional, or a retiree, you will find valuable information and guidance on how to manage your money, plan for your future, and achieve your financial goals. Learn from the best finance websites, courses, and experts in the field, and discover how to make smart and informed decisions about your finances. Join us today and start your journey to financial freedom and success.</p>
+          <p class="text-center md:text-left text-xl font-mysans">Welcome to <span class="text-myheading">FinEd Connect</span>, the ultimate online resource for improving your financial literacy. Whether you are a student, a professional, or a retiree, you will find valuable information and guidance on how to manage your money, plan for your future, and achieve your financial goals. Learn from the best finance websites, courses, and experts in the field, and discover how to make smart and informed decisions about your finances. Join us today and start your journey to financial freedom and success.</p>
         </div>
         <button onClick={handleRegisterPage} class="text-3xl font-black bg-white self-center text-myaccent py-4 px-8 rounded-full">JOIN NOW</button>
       </div>
