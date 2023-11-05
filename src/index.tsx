@@ -154,7 +154,7 @@ function Games() {
     <div class="grow mx-2 mt-4 text-cyan-400 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans shadow-xl">Games</h1>
       <div class="grow grid gap-4 mx-4">
-        <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-gradient-to-tr from-[#F96900] to-[#C71800] bg-chall">
+        <div class="col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-chall">
           <h1 class="font-serif text-5xl text-white">Financial challenges</h1>
           <p class="font-serif text-2xl text-white">Monthly challenges to encourage practical application of knowledge.</p>
         </div>
