@@ -288,7 +288,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   /* registerState is RegisterState.Success */
   return (
     <div class="grow flex items-stretch justify-center">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col gap-2 items-center justify-center my-gradient rounded-xl m-4">
+      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4 py-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
         <button onClick={() => setState(State.Login)} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
       </div>
