@@ -232,15 +232,15 @@ function Tax() {
       <div class="flex flex-col gap-2">
         <div class="flex flex-col gap-4 my-gradient rounded-xl p-2">
           <h1 class="text-3xl font-bold">Taxes and their types</h1>
-          <div class="flex flex-wrap gap-2">
-            <div class="basis-0 grow flex items-center justify-center">
-              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4XZIv4__sQA?si=M2STbyjNAOg9tnpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="aspect-video flex items-center justify-center">
+              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube-nocookie.com/embed/4XZIv4__sQA?si=M2STbyjNAOg9tnpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
-            <div class="basis-0 grow flex items-center justify-center">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LrTejUbR_Zs?si=K9JqVctnAdwW8RP9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <div class="aspect-video flex items-center justify-center">
+              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube-nocookie.com/embed/LrTejUbR_Zs?si=K9JqVctnAdwW8RP9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
-            <div class="basis-0 grow flex items-center justify-center">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/p7HKvqRI_Bo?si=PlmilD6HPvwCRihN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <div class="aspect-video flex items-center justify-center lg:col-span-2">
+              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube.com/embed/p7HKvqRI_Bo?si=PlmilD6HPvwCRihN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
           </div>
         </div>
