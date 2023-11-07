@@ -116,7 +116,7 @@ function Home({ setState }: { setState: StateUpdater<State> }) {
 
 function Modules() {
   return (
-    <div class="mx-2 my-4 text-cyan-400 flex flex-col gap-4">
+    <div class="m-2 flex flex-col gap-4 text-mytext">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold text-myheading font-mysans shadow-xl">Videos</h1>
         <button class="my-button text-mytext font-bold px-2 py-1 rounded-xl">View all</button>
@@ -158,7 +158,7 @@ function Advisor() {
   };
 
   return (
-    <div class="mx-2 mt-4 text-black flex flex-col gap-2 h-full justify-between grow">
+    <div class="m-2 text-black flex flex-col gap-2 h-full justify-between grow">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans">Virtual Finance Advisor</h1>
       <div class="flex flex-col gap-2 py-2">
         <p class="w-full md:w-1/2 lg:w-1/3 bg-white p-2 rounded-xl">Hello there, I am your personal virtual finance advisor. How may I help you?</p>
@@ -174,7 +174,7 @@ function Advisor() {
 
 function Games() {
   return (
-    <div class="grow mx-2 mt-4 flex flex-col gap-4">
+    <div class="grow m-2 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl p-2 font-mysans shadow-xl">Games</h1>
       <div class="grow grid grid-rows-3 md:grid-rows-2 md:grid-cols-2 gap-4 mx-4">
         <div class="md:col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-chall">
@@ -202,7 +202,7 @@ function Games() {
 
 function Forum() {
   return (
-    <div class="mx-2 mt-4 text-cyan-400 flex flex-col gap-4 h-full">
+    <div class="m-2 flex flex-col gap-4 h-full text-mytext">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold text-myheading font-mysans">Forums</h1>
         <button class="my-button font-bold text-myheading px-2 py-1 rounded-xl">Create thread</button>
@@ -236,30 +236,25 @@ function Forum() {
 
 function Tax() {
   return (
-    <div class="mx-2 mt-4 flex flex-col gap-4 h-full text-myheading">
+    <div class="m-2 flex flex-col gap-4 h-full text-myheading">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold font-mysans">Tax Section</h1>
       </div>
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-col gap-4 my-gradient rounded-xl p-2">
-          <h1 class="text-3xl font-bold">Taxes and their types</h1>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div class="aspect-video flex items-center justify-center">
-              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube-nocookie.com/embed/4XZIv4__sQA?si=M2STbyjNAOg9tnpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
-            <div class="aspect-video flex items-center justify-center">
-              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube-nocookie.com/embed/LrTejUbR_Zs?si=K9JqVctnAdwW8RP9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
-            <div class="aspect-video flex items-center justify-center lg:col-span-2">
-              <iframe class="w-full h-full" width="560" height="315" src="https://www.youtube.com/embed/p7HKvqRI_Bo?si=PlmilD6HPvwCRihN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
+      <div class="flex flex-col gap-4 mx-4">
+        <div class="flex flex-col gap-4 my-gradient rounded-xl p-4">
+          <h1 class="text-center text-3xl font-bold">Videos on Taxes</h1>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 m-4">
+              <iframe class="w-full h-full aspect-video rounded-xl" width="560" height="315" src="https://www.youtube-nocookie.com/embed/qCfGsQYINKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              <iframe class="w-full h-full aspect-video rounded-xl" width="560" height="315" src="https://www.youtube-nocookie.com/embed/t6V9i8fFADI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              <iframe class="w-full h-full aspect-video rounded-xl" width="560" height="315" src="https://www.youtube-nocookie.com/embed/7Qtr_vA3Prw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
           </div>
         </div>
-        <div class="flex flex-col gap-4 items-start my-gradient rounded-xl p-2">
-          <h1 class="text-3xl font-bold">How to calculate your taxes</h1>
-          <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-full" href="https://incometaxindia.gov.in/pages/tools/tax-calculator.aspx">Tax Calculator</a>
+        <div class="flex flex-col gap-4 my-gradient rounded-xl items-center p-4">
+          <h1 class="text-3xl font-bold">How to calculate your taxes?</h1>
+          <p class="text-xl font-normal font-mysans text-center mx-4">Here's a cool little tool by the income tax department that can help you calculate your taxes.</p>
+          <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-xl m-2" href="https://incometaxindia.gov.in/pages/tools/tax-calculator.aspx">Tax Calculator</a>
         </div>
-        <div class="flex flex-col gap-4 items-start my-gradient rounded-xl p-2">
+        <div class="flex flex-col gap-4 my-gradient rounded-xl items-center p-4">
           <h1 class="text-3xl font-bold">Tax rebates</h1>
           <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-full" href="https://scripbox.com/tax/tax-saving-options/">Tax Saving Options</a>
         </div>
@@ -281,8 +276,8 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
 
   if (registerState == RegisterState.Form) {
     return (
-      <div class="grow flex items-stretch justify-center">
-        <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4 py-4">
+      <div class="grow flex items-stretch justify-center m-2">
+        <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
           <h1 class="text-5xl text-myheading font-black">SIGN UP</h1>
           <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleRegister}>
             <input required name="email" type="email" placeholder="Email" class="w-full rounded-xl p-2 text-xl" />
@@ -298,8 +293,8 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   }
   /* registerState is RegisterState.Success */
   return (
-    <div class="grow flex items-stretch justify-center">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl m-4 py-4">
+    <div class="grow flex items-stretch justify-center m-2">
+      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
         <button onClick={() => setState(State.Login)} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
       </div>
@@ -309,8 +304,8 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
 
 function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormElement> }) {
   return (
-    <div class="grow flex items-stretch justify-center">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4 m-4">
+    <div class="grow flex items-stretch justify-center m-2">
+      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-5xl text-myheading font-black">LOG IN</h1>
         <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleLogin}>
           <input required name="username" placeholder="Username" class="w-full rounded-xl p-2 text-xl" />
