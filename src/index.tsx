@@ -10,7 +10,10 @@
 import { render, JSX } from "preact"
 import { useState, StateUpdater } from "preact/hooks"
 import "./index.css"
-import landing from "/landing.png"
+import landing_512 from "/landing_512.webp"
+import landing_640 from "/landing_640.webp"
+import landing_768 from "/landing_768.webp"
+import landing from "/landing.webp"
 import graph from "/graph.svg"
 import money_master from "/money_master.png"
 import send from "/send.svg"
@@ -90,14 +93,22 @@ function Home({ setState }: { setState: StateUpdater<State> }) {
             <p class="font-medium font-mysans text-myheading text-xl">Make <span class="underline">smarter</span> decisions</p>
           </div>
           <div class="md:hidden">
-            <img src={landing} class="object-scale-down" />
+            <picture>
+              <source srcset={landing_640} width="640" height="480" media="(max-width: 640px)" />
+              <img src={landing_768} width="768" height="576" alt="" />
+            </picture>
           </div>
           <p class="text-center md:text-left text-xl font-mysans">Welcome to <span class="text-myheading">FinEd Connect</span>, the ultimate online resource for improving your financial literacy. Whether you are a student, a professional, or a retiree, you will find valuable information and guidance on how to manage your money, plan for your future, and achieve your financial goals. Learn from the best finance websites, courses, and experts in the field, and discover how to make smart and informed decisions about your finances. Join us today and start your journey to financial freedom and success.</p>
         </div>
         <button onClick={() => setState(State.Register)} class="text-3xl font-black bg-white self-center text-myaccent py-4 px-8 rounded-full">JOIN NOW</button>
       </div>
       <div class="basis-0 grow hidden md:block">
-        <img src={landing} class="" alt="" width="3200" height="2400" />
+        <picture>
+          <source srcset={landing_512} width="512" height="384" media="(max-width: 1024px)" />
+          <source srcset={landing_640} width="640" height="480" media="(max-width: 1280px)" />
+          <source srcset={landing_768} width="768" height="576" media="(max-width: 1536px)" />
+          <img src={landing} width="3200" height="2400" alt="" />
+        </picture>
       </div>
     </div>
   )
