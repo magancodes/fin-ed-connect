@@ -280,7 +280,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
             <input required name="cnfpassword" type="password" placeholder="Re-enter Password" class="w-full rounded-xl p-2 text-xl" />
             <button class="text-3xl text-myaccent bg-white px-8 py-2 rounded-full font-black">SIGN UP</button>
           </form>
-          <p class="text-mytext">Already have an account? <span class="underline">Log in</span></p>
+          <p class="text-mytext">Already have an account? <button class="underline" onClick={() => setState(State.Login)}>Log in</button></p>
         </div>
       </div>
     )
