@@ -256,7 +256,8 @@ function Tax() {
         </div>
         <div class="flex flex-col gap-4 my-gradient rounded-xl items-center p-4">
           <h1 class="text-3xl font-bold">Tax rebates</h1>
-          <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-full" href="https://scripbox.com/tax/tax-saving-options/">Tax Saving Options</a>
+          <p class="text-xl font-normal font-mysans text-center mx-4">Want to save on paying taxes? Here's a website that can help you learn about various tax saving options.</p>
+          <a class="text-3xl font-black bg-white text-myaccent py-4 px-8 rounded-xl m-2" href="https://scripbox.com/tax/tax-saving-options/">Tax Saving Options</a>
         </div>
       </div>
     </div>
