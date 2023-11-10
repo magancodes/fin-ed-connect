@@ -272,6 +272,11 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   const [registerState, setRegisterState] = useState(RegisterState.Form);
   const handleRegister = (event: JSX.TargetedEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (form.password.value != form.cnfpassword.value) {
+      alert("Passwords do not match");
+      return
+    }
     setRegisterState(RegisterState.Success);
   };
 
