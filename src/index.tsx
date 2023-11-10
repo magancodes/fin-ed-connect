@@ -278,7 +278,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   if (registerState == RegisterState.Form) {
     return (
       <div class="grow flex items-stretch justify-center m-2">
-        <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
+        <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
           <h1 class="text-5xl text-myheading font-black">SIGN UP</h1>
           <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleRegister}>
             <input required name="email" type="email" placeholder="Email" class="w-full rounded-xl p-2 text-xl" />
@@ -295,7 +295,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   /* registerState is RegisterState.Success */
   return (
     <div class="grow flex items-stretch justify-center m-2">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
+      <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
         <button onClick={() => setState(State.Login)} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
       </div>
@@ -306,7 +306,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
 function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormElement> }) {
   return (
     <div class="grow flex items-stretch justify-center m-2">
-      <div class="container md:w-1/2 lg:w-3/7 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
+      <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-5xl text-myheading font-black">LOG IN</h1>
         <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleLogin}>
           <input required name="username" placeholder="Username" class="w-full rounded-xl p-2 text-xl" />
