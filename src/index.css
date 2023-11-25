@@ -29,8 +29,21 @@
 	}
 }
 
+@keyframes fadein {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
 .my-slidein {
 	animation: slidein 0.2s ease-out;
+}
+
+.my-fadein {
+	animation: fadein 0.4s linear;
 }
 
 .my-gradient {

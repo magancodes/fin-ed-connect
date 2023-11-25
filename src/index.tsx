@@ -85,7 +85,7 @@ function Header({ loggedIn, setState, setUsername }: { loggedIn: boolean,
 
 function Home({ setState }: { setState: StateUpdater<State> }) {
   return (
-    <div class="grow flex gap-4 m-2">
+    <div class="my-fadein grow flex gap-4 m-2">
       <div class="basis-0 grow flex flex-col gap-8 justify-around rounded-2xl my-gradient p-2 shadow-xl text-mytext">
         <div class="flex flex-col gap-8 mx-6 my-6">
           <div class="flex flex-col items-center md:items-start md:py-0">
@@ -116,7 +116,7 @@ function Home({ setState }: { setState: StateUpdater<State> }) {
 
 function Modules() {
   return (
-    <div class="m-2 flex flex-col gap-4 text-mytext">
+    <div class="my-fadein m-2 flex flex-col gap-4 text-mytext">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold text-myheading font-mysans shadow-xl">Videos</h1>
         <button class="my-button text-mytext font-bold px-2 py-1 rounded-xl">View all</button>
@@ -158,7 +158,7 @@ function Advisor() {
   };
 
   return (
-    <div class="m-2 text-black flex flex-col gap-2 h-full justify-between grow">
+    <div class="my-fadein m-2 text-black flex flex-col gap-2 h-full justify-between grow">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl col-span-2 p-2 font-mysans">Virtual Finance Advisor</h1>
       <div class="flex flex-col gap-2 py-2">
         <p class="w-full md:w-1/2 lg:w-1/3 bg-white p-2 rounded-xl">Hello there, I am your personal virtual finance advisor. How may I help you?</p>
@@ -174,7 +174,7 @@ function Advisor() {
 
 function Games() {
   return (
-    <div class="grow m-2 flex flex-col gap-4">
+    <div class="my-fadein grow m-2 flex flex-col gap-4">
       <h1 class="text-4xl font-bold text-myheading my-gradient rounded-xl p-2 font-mysans shadow-xl">Games</h1>
       <div class="grow grid grid-rows-3 md:grid-rows-2 md:grid-cols-2 gap-4 mx-4">
         <div class="md:col-span-2 bg-red-600 rounded-xl flex flex-col justify-center items-center shadow-xl bg-chall">
@@ -202,7 +202,7 @@ function Games() {
 
 function Forum() {
   return (
-    <div class="m-2 flex flex-col gap-4 h-full text-mytext">
+    <div class="my-fadein m-2 flex flex-col gap-4 h-full text-mytext">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold text-myheading font-mysans">Forums</h1>
         <button class="my-button font-bold text-myheading px-2 py-1 rounded-xl">Create thread</button>
@@ -236,7 +236,7 @@ function Forum() {
 
 function Tax() {
   return (
-    <div class="m-2 flex flex-col gap-4 h-full text-myheading">
+    <div class="my-fadein m-2 flex flex-col gap-4 h-full text-myheading">
       <div class="flex justify-between my-gradient rounded-xl p-2">
         <h1 class="text-4xl font-bold font-mysans">Tax Section</h1>
       </div>
@@ -282,7 +282,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
 
   if (registerState == RegisterState.Form) {
     return (
-      <div class="grow flex items-stretch justify-center m-2">
+      <div class="my-fadein grow flex items-stretch justify-center m-2">
         <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
           <h1 class="text-5xl text-myheading font-black">SIGN UP</h1>
           <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleRegister}>
@@ -299,7 +299,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
   }
   /* registerState is RegisterState.Success */
   return (
-    <div class="grow flex items-stretch justify-center m-2">
+    <div class="my-fadein grow flex items-stretch justify-center m-2">
       <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-myheading text-4xl font-bold">Registration Successful</h1>
         <button onClick={() => setState(State.Login)} class="text-xl text-myaccent bg-white px-6 py-2 rounded-full font-black">LOG IN</button>
@@ -310,7 +310,7 @@ function Register({ setState }: { setState: StateUpdater<State> }) {
 
 function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormElement> }) {
   return (
-    <div class="grow flex items-stretch justify-center m-2">
+    <div class="my-fadein grow flex items-stretch justify-center m-2">
       <div class="container md:w-1/2 lg:w-5/12 xl:w-2/5 flex flex-col items-center justify-center gap-4 my-gradient rounded-xl py-4">
         <h1 class="text-5xl text-myheading font-black">LOG IN</h1>
         <form class="flex flex-col items-center p-2 justify-around gap-4 w-4/5" onSubmit={handleLogin}>
@@ -326,7 +326,7 @@ function Login({ handleLogin }: { handleLogin: JSX.GenericEventHandler<HTMLFormE
 
 function Roadmap({ username }: { username: string }) {
   return (
-    <div>
+    <div class="my-fadein">
       <h1 class="text-5xl text-white">Hello {username}</h1>
       <h1 class="text-5xl text-white">TODO!</h1>
     </div>
